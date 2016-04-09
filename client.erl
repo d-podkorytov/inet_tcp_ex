@@ -4,10 +4,12 @@
 % or try use gen_tcp instead inet_tcp
 ask() ->
  SomeHostInNet = "localhost", % to make it runnable on one machine
- {ok, Sock} = inet_tcp:connect(SomeHostInNet, 5678, 
+ Res = gen_tcp:connect(SomeHostInNet, 2525, 
  [binary, {packet, 0}]),
- ok = inet_tcp:send(Sock, "Some Data"),
- ok = inet_tcp:close(Sock).
+ %io:format("Res=~p ~n",[Res]),
+ {ok, Sock} = Res,
+ ok = gen_tcp:send(Sock, "Some Data"),
+ ok = gen_tcp:close(Sock).
  
 loop()->
  ask(),

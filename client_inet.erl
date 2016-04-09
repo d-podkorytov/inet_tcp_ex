@@ -22,4 +22,6 @@ create_threads(N)->
  io:format(" created thread=~p ",[Pid]),
  create_threads(N-1).
 
-start()-> create_threads(100). % create 100 parallel asks endless loops 
+start()->start(100). % create 100 parallel asks endless loops 
+
+start(N)-> create_threads(N). 
