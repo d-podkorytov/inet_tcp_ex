@@ -1,0 +1,19 @@
+Just some tests for TCP
+
+1)Edit address, port in client.erl and query string
+
+2)Compile it:
+ erlc *.erl
+
+3)Run erl
+
+$erl
+
+Inside it type:
+1) client:start().
+
+It create 100 parallel threads with asks.
+
+It need more, just repeat again client:start().
+and next 100 of threads will start.
+
